@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { doTest } from './redux/actions';
 
 class App extends Component {
   render() {
@@ -18,4 +20,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    test: state.testReducer.test,
+  };
+};
+
+const mapDispatchToProps = { doTest };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
