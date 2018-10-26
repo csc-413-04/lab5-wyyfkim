@@ -15,6 +15,7 @@ class App extends Component {
     };
     this.buttonHandler = this.buttonHandler.bind(this);
     this.textHandler = this.textHandler.bind(this);
+    console.log(this.props)
   }
 
   buttonHandler() {
@@ -36,7 +37,7 @@ class App extends Component {
       myBanner = <Header banner={this.state.banner}/>;
     }
     return (
-      <div className="App">
+      <div onClick={this.buttonHandler} className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -48,7 +49,7 @@ class App extends Component {
             <Header banner={this.state.banner}/>
           }
           <input value={this.state.banner} onChange={this.textHandler}/>
-          <button onClick={this.buttonHandler} >Click Me</button>
+          <button  >Click Me</button>
         </header>
       </div>
     );
