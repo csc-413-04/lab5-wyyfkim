@@ -14,6 +14,7 @@ class App extends Component {
       isOpen: false,
     };
     this.buttonHandler = this.buttonHandler.bind(this);
+    this.textHandler = this.textHandler.bind(this);
   }
 
   buttonHandler() {
@@ -22,11 +23,17 @@ class App extends Component {
     });
   }
 
+  textHandler(e) {
+    this.setState({
+      banner: e.target.value,
+    })
+  }
+
   render() {
     let myVariable = <h2>Brian</h2>;
     let myBanner;
     if (this.state.isOpen) {
-      myBanner = <h1>{this.state.banner}</h1>
+      myBanner = <Header banner={this.state.banner}/>;
     }
     return (
       <div className="App">
@@ -36,6 +43,11 @@ class App extends Component {
             {myVariable}
           </p>
           {myBanner}
+          {
+            this.state.isOpen && 
+            <Header banner={this.state.banner}/>
+          }
+          <input value={this.state.banner} onChange={this.textHandler}/>
           <button onClick={this.buttonHandler} >Click Me</button>
         </header>
       </div>
