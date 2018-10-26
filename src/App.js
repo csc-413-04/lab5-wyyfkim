@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { doTest } from './redux/actions';
+import Header from './Header';
 
 class App extends Component {
   constructor(props) {
@@ -16,11 +17,17 @@ class App extends Component {
   }
 
   buttonHandler() {
-    console.log('my button is working')
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
   }
 
   render() {
     let myVariable = <h2>Brian</h2>;
+    let myBanner;
+    if (this.state.isOpen) {
+      myBanner = <h1>{this.state.banner}</h1>
+    }
     return (
       <div className="App">
         <header className="App-header">
@@ -28,7 +35,7 @@ class App extends Component {
           <p>
             {myVariable}
           </p>
-          <h2>{this.state.banner}</h2>
+          {myBanner}
           <button onClick={this.buttonHandler} >Click Me</button>
         </header>
       </div>
