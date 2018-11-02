@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Page1 extends Component {
     render() {
         return (
-            <div onClick={this.props.doTest}>
+            <div>
                 <h1>Page 1</h1>
                 <p>
                     Here is content for page1!

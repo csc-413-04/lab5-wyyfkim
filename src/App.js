@@ -6,6 +6,8 @@ import { doTest } from './redux/actions';
 import Header from './Header';
 import HomePage from './HomePage';
 import Page1 from './Page1';
+import Page2 from './Page2';
+import Mail from './Mail';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -45,6 +47,8 @@ class App extends Component {
           <Header banner={this.state.banner} />
           <div className="page-content">
             <Switch>
+              <Route path="/page2" exact component={Page2} />
+              <Route path="/page1/mail" component={Mail} />
               <Route path="/page1" component={Page1} />
               <Route path="/" component={HomePage} />
             </Switch>

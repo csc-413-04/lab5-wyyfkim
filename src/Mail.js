@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
 
-class HomePage extends Component {
+
+class Mail extends Component {
     render() {
         return (
             <div>
-                <h1>Home Page</h1>
+                <h1>Mail</h1>
                 <p>
-                    Here is my main page content <Link to="/page1/mail">Mail</Link>
-                </p>
-                <p>
-                    <a href="https://reacttraining.com/react-router/web/guides/quick-start">Click me to find out more about routing</a>
+                    Here is content for page2!
                 </p>
             </div>
         );
@@ -28,4 +25,4 @@ const mapDispatchToProps = {};
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomePage);
+)(Mail);
