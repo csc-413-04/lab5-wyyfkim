@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { doTest } from './redux/actions';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
         return (
-            <div onClick={this.props.doTest}>
-                <h1>Banner</h1>
-                {this.props.testBanner}
+            <div className="header">
+                <h1> My App</ h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/page1">Page1</Link>
+                        </li>
+                        <li>
+                            <Link to="/page2/">Page2</Link>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         );
     }
@@ -15,13 +28,13 @@ class Header extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-      testBanner: state.testReducer.test,
+        testBanner: state.testReducer.test,
     };
-  };
-  
-  const mapDispatchToProps = { doTest };
-  
-  export default connect(
+};
+
+const mapDispatchToProps = { doTest };
+
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(Header);
+)(Header);

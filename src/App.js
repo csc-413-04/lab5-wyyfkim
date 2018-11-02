@@ -4,6 +4,9 @@ import './App.css';
 import { connect } from 'react-redux';
 import { doTest } from './redux/actions';
 import Header from './Header';
+import HomePage from './HomePage';
+import Page1 from './Page1';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -34,25 +37,20 @@ class App extends Component {
     let myVariable = <h2>Brian</h2>;
     let myBanner;
     if (this.state.isOpen) {
-      myBanner = <Header banner={this.state.banner}/>;
+      myBanner = <Header banner={this.state.banner} />;
     }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            {myVariable}
-          </p>
-          {this.props.test}
-
-          {
-            this.state.isOpen && 
-            <Header banner={this.state.banner}/>
-          }
-          <input value={this.state.banner} onChange={this.textHandler}/>
-          <button  onClick={this.buttonHandler} >Click Me</button>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <Header banner={this.state.banner} />
+          <div className="page-content">
+            <Switch>
+              <Route path="/page1" component={Page1} />
+              <Route path="/" component={HomePage} />
+            </Switch>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
