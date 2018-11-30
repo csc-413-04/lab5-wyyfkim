@@ -12,7 +12,14 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
-    super(props);
+      super(props);
+      this.sendSomeData = this.sendSomeData.bind(this);
+      this.updateMessage = this.updateMessage.bind(this);
+      this.state = {
+          content: null, // Initial content
+          messageValue: "test",
+  };
+
     this.state = {
       color: 'black',
       banner: 'hello',
